@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Course Management</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <h2>
+        <i class="fa-solid fa-graduation-cap"></i>
+        SMS
+    </h2>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="students.html">
+                <i class="fa-solid fa-user-graduate"></i>
+                Students
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="courses.html">
+                <i class="fa-solid fa-book"></i>
+                Courses
+            </a>
+        </li>
+
+        <li>
+            <a href="users.html">
+                <i class="fa-solid fa-users"></i>
+                Users
+            </a>
+        </li>
+
+        <li>
+            <a href="attendance.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                Attendance
+            </a>
+        </li>
+
+        <li>
+            <a href="marks.html">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                Marks
+            </a>
+        </li>
+
+        <li>
+            <a href="fees.html">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                Fees
+            </a>
+        </li>
+
+        <li>
+            <a href="reports.html">
+                <i class="fa-solid fa-file-lines"></i>
+                Reports
+            </a>
+        </li>
+
+        <li>
+            <a href="#" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>Course Management</h1>
+
+    </header>
+
+
+    <div class="container">
+
+        <!-- ADD COURSE -->
+
+        <div class="card">
+
+            <h2>Add Course</h2>
+
+            <form id="courseForm">
+
+                <input type="hidden" id="courseId">
+
+                <input
+                    type="text"
+                    id="course_name"
+                    placeholder="Course Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="course_code"
+                    placeholder="Course Code"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="duration"
+                    placeholder="Duration"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="fees"
+                    placeholder="Fees"
+                    required
+                >
+
+                <button type="submit">
+                    Add Course
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- COURSE LIST -->
+
+        <div class="card">
+
+            <h2>Course List</h2>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search by course name, code, duration, or fees..."
+                onkeyup="searchCourses()"
+            >
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Course Name</th>
+                        <th>Course Code</th>
+                        <th>Duration</th>
+                        <th>Fees</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="courseTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/auth.js"></script>
+<script src="js/courses.js"></script>
+
+</body>
+
+</html>

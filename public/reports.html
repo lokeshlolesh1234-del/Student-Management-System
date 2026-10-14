@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Reports</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>
+        <i class="fa-solid fa-graduation-cap"></i>
+        SMS
+    </h2>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="students.html">
+                <i class="fa-solid fa-user-graduate"></i>
+                Students
+            </a>
+        </li>
+
+        <li>
+            <a href="courses.html">
+                <i class="fa-solid fa-book"></i>
+                Courses
+            </a>
+        </li>
+
+        <li>
+            <a href="users.html">
+                <i class="fa-solid fa-users"></i>
+                Users
+            </a>
+        </li>
+
+        <li>
+            <a href="attendance.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                Attendance
+            </a>
+        </li>
+
+        <li>
+            <a href="marks.html">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                Marks
+            </a>
+        </li>
+
+        <li>
+            <a href="fees.html">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                Fees
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="reports.html">
+                <i class="fa-solid fa-file-lines"></i>
+                Reports
+            </a>
+        </li>
+
+        <li>
+            <a href="#" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+
+<div class="main-content">
+
+    <header>
+
+        <h1>Student Reports</h1>
+
+        <button onclick="printReport()">
+            <i class="fa-solid fa-print"></i>
+            Print Report
+        </button>
+
+    </header>
+
+
+    <div class="container">
+
+
+        <!-- Search -->
+
+        <div class="card">
+
+            <h2>Student Report</h2>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search by name, email, phone, or course..."
+                onkeyup="searchReport()"
+            >
+
+        </div>
+
+
+        <!-- Student Information -->
+
+        <div class="card">
+
+            <h2>Student Information</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Course</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="studentTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- Attendance Report -->
+
+        <div class="card">
+
+            <h2>Attendance Report</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Student</th>
+                            <th>Total Classes</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Attendance %</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="attendanceTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- Marks Report -->
+
+        <div class="card">
+
+            <h2>Marks Report</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Student</th>
+                            <th>Total Marks</th>
+                            <th>Average Marks</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="marksTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- Fees Report -->
+
+        <div class="card">
+
+            <h2>Fees Report</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Student</th>
+                            <th>Total Fee</th>
+                            <th>Paid Fee</th>
+                            <th>Balance Fee</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="feesTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="js/auth.js"></script>
+<script src="js/reports.js"></script>
+
+</body>
+
+</html>

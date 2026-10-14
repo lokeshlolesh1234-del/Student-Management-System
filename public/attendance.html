@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance Management</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>
+        <i class="fa-solid fa-graduation-cap"></i>
+        SMS
+    </h2>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="students.html">
+                <i class="fa-solid fa-user-graduate"></i>
+                Students
+            </a>
+        </li>
+
+        <li>
+            <a href="courses.html">
+                <i class="fa-solid fa-book"></i>
+                Courses
+            </a>
+        </li>
+
+        <li>
+            <a href="users.html">
+                <i class="fa-solid fa-users"></i>
+                Users
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="attendance.html">
+                <i class="fa-solid fa-calendar-check"></i>
+                Attendance
+            </a>
+        </li>
+
+        <li>
+            <a href="marks.html">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                Marks
+            </a>
+        </li>
+
+        <li>
+            <a href="fees.html">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                Fees
+            </a>
+        </li>
+
+        <li>
+            <a href="reports.html">
+                <i class="fa-solid fa-file-lines"></i>
+                Reports
+            </a>
+        </li>
+
+        <li>
+            <a href="#" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+
+<div class="main-content">
+
+    <header>
+
+        <h1>Attendance Management</h1>
+
+    </header>
+
+
+    <div class="container">
+
+
+        <!-- Attendance Form -->
+
+        <div class="card">
+
+            <h2>Mark Attendance</h2>
+
+            <form id="attendanceForm">
+
+                <input
+                    type="hidden"
+                    id="attendanceId"
+                >
+
+
+                <select id="student" required>
+
+                    <option value="">
+                        Select Student
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="date"
+                    id="attendance_date"
+                    required
+                >
+
+
+                <select id="status" required>
+
+                    <option value="Present">
+                        Present
+                    </option>
+
+                    <option value="Absent">
+                        Absent
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Save Attendance
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Attendance List -->
+
+        <div class="card">
+
+            <h2>Attendance List</h2>
+
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search student or status..."
+                onkeyup="searchAttendance()"
+            >
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Student</th>
+
+                        <th>Date</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="attendanceTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="js/auth.js"></script>
+<script src="js/attendance.js"></script>
+
+</body>
+
+</html>

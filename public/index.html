@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System - Login</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="login-container">
+
+    <h2>Student Management System</h2>
+    <p>Login to your account</p>
+
+<form id="loginForm">
+
+    <input
+    type="email"
+    id="email"
+    placeholder="Email">
+
+    <input
+    type="password"
+    id="password"
+    placeholder="Password">
+
+    <button>Login</button>
+
+</form>
+
+    <div class="footer">
+        Don't have an account?
+        <a href="register.html">Register</a>
+    </div>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+        const response = await fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            // Save JWT token
+            localStorage.setItem("token", data.token);
+
+            alert("Login Successful");
+
+            window.location.href = "dashboard.html";
+
+        } else {
+
+            alert(data.message);
+
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Unable to connect to the server.");
+    }
+});
+</script>
+
+</body>
+</html>
